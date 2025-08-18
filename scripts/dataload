@@ -1,0 +1,79 @@
+-- ================================================
+-- Carregamento de dados para o banco de dados Bronze
+-- ================================================
+
+-- Limpa a tabela de clientes do CRM antes de inserir novos dados
+TRUNCATE TABLE bronze.crm_cust_info;
+
+-- Carrega dados de clientes do CRM a partir do arquivo CSV
+BULK INSERT bronze.crm_cust_info
+FROM 'C:\Users\Leandro\Desktop\SQL\sql-data-warehouse-project\datasets\source_crm\cust_info.csv'
+WITH (
+    FIRSTROW = 2,          -- Ignora o cabeçalho do arquivo CSV
+    FIELDTERMINATOR = ',', -- Define a vírgula como separador de campos
+    TABLOCK                -- Bloqueia a tabela durante a inserção para melhorar performance
+);
+
+-- Limpa a tabela de produtos do CRM
+TRUNCATE TABLE bronze.crm_prd_info;
+
+-- Carrega dados de produtos do CRM a partir do arquivo CSV
+BULK INSERT bronze.crm_prd_info
+FROM 'C:\Users\Leandro\Desktop\SQL\sql-data-warehouse-project\datasets\source_crm\prd_info.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    TABLOCK
+);
+
+-- Limpa a tabela de detalhes de vendas do CRM
+TRUNCATE TABLE bronze.crm_sales_details;
+
+-- Carrega dados de vendas do CRM a partir do arquivo CSV
+BULK INSERT bronze.crm_sales_details
+FROM 'C:\Users\Leandro\Desktop\SQL\sql-data-warehouse-project\datasets\source_crm\sales_details.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    TABLOCK
+);
+
+-- ================================================
+-- Carregamento de dados do ERP para o banco Bronze
+-- ================================================
+
+-- Limpa a tabela de clientes do ERP
+TRUNCATE TABLE bronze.erp_cust_az12;
+
+-- Carrega dados de clientes do ERP a partir do arquivo CSV
+BULK INSERT bronze.erp_cust_az12
+FROM 'C:\Users\Leandro\Desktop\SQL\sql-data-warehouse-project\datasets\source_erp\CUST_AZ12.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    TABLOCK
+);
+
+-- Limpa a tabela de localização do ERP
+TRUNCATE TABLE bronze.erp_loc_a101;
+
+-- Carrega dados de localização do ERP a partir do arquivo CSV
+BULK INSERT bronze.erp_loc_a101
+FROM 'C:\Users\Leandro\Desktop\SQL\sql-data-warehouse-project\datasets\source_erp\LOC_A101.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    TABLOCK
+);
+
+-- Limpa a tabela de categorias de produtos do ERP
+TRUNCATE TABLE bronze.erp_px_cat_g1v2;
+
+-- Carrega dados de categorias de produtos do ERP a partir do arquivo CSV
+BULK INSERT bronze.erp_px_cat_g1v2
+FROM 'C:\Users\Leandro\Desktop\SQL\sql-data-warehouse-project\datasets\source_erp\PX_CAT_G1V2.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    TABLOCK
+);
