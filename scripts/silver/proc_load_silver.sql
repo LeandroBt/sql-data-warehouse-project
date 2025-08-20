@@ -143,7 +143,13 @@ BEGIN
 
 			-- Copia a data de criação
 			cst_create_date
-		FROM bronze.crm_cust_info;
+			FROM (
+			SELECT *,
+			ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) AS flag_last
+			FROM bronze.crm_cust_info
+			WHERE cst_id IS NOT NULL
+			) t
+			WHERE flag_last = 1;
 		SET @end_time = GETDATE();
 		PRINT ''
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
