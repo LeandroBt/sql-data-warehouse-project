@@ -35,11 +35,11 @@ Tendências de Vendas
 Esses insights permitem que stakeholders tomem decisões estratégicas com base em métricas-chave do negócio.
 
 
-👨‍💻 Sobre
+- Sobre
 
 Meu nome é Leandro Bertolino e este repositório faz parte do meu aprendizado em SQL e Data Warehouse.
 O conteúdo foi desenvolvido a partir do curso do DataWithBaraa no YouTube.
 
-🙏 Agradecimentos
+- Agradecimentos
 
 Agradeço ao DataWithBaraa pela disponibilização do conteúdo educativo e à comunidade de tecnologia que compartilha conhecimento e boas práticas, tornando o aprendizado mais acessível para todos.
