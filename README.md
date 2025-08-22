@@ -34,6 +34,11 @@ Tendências de Vendas
 
 Esses insights permitem que stakeholders tomem decisões estratégicas com base em métricas-chave do negócio.
 
+## Diagrama de Fluxo de Dados
+
+![Fluxo de Dados](docs/diagrama_fluxo_dados.png)
+
+
 
 - Sobre
 
